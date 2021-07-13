@@ -1,0 +1,79 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+$dark-orange: #f16718;
+$light-orange: #ff9b62;
+$dark-blue: #162542;
+$med-blue: #7b8bad;
+$light-blue: #e8eff2;
+$white: #ffffff;
+
+body{
+    font-family: 'Barlow';
+    font-size: 16px;
+    line-height: 26px;
+    color: $dark-blue;
+}
+@mixin h {
+    font-family: 'Barlow';
+    text-transform: uppercase;
+    font-weight: 900;
+  }
+
+h1 {
+    @include h;
+    font-size: 56px;
+    line-height: 56px;
+}
+h2{
+    @include h;
+    font-size: 32px;
+    line-height: 36px;
+}
+h3{
+    @include h;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+@mixin button{
+    font-family: 'Barlow';
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+}
+.button--blue{
+    @include button;
+    background-color: $light-blue;
+    color: $dark-blue;
+    &:hover{
+        background-color: $dark-blue;
+        color: $white;
+    }
+}
+.button--orange{
+    @include button;
+    background-color: $dark-orange;
+    color: $white;
+    &:hover{
+        background-color: $light-orange;
+    }
+}
+.header{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 60px 10% 0;
+    margin-bottom: 80px;
+}
+.header--logo{
+    margin-right: auto;
+    width: 40px;
+    height: 40px;
+}
