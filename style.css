@@ -81,4 +81,102 @@ h3 {
   height: 40px;
 }
 
+.topgrid {
+  padding: 0px 11%;
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-template-columns: 2.5fr 2.8fr 1.5fr 3.8fr;
+  gap: 2% 2%;
+  grid-template-rows: 480px 480px;
+  margin-bottom: 100px;
+}
+
+.topgrid img {
+  border-radius: 10px;
+}
+
+.grid__cta {
+  grid-column: 1/3;
+  grid-row: 1/2;
+}
+
+.grid__keyboard {
+  grid-column: 3/5;
+  grid-row: 1/2;
+}
+.grid__keyboard img {
+  width: 100%;
+  height: 480px;
+}
+
+.grid__phone {
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+.grid__phone img {
+  width: 100%;
+  height: 480px;
+}
+
+.grid__glass {
+  grid-column: 2/4;
+  grid-row: 2/3;
+}
+.grid__glass img {
+  width: 100%;
+  object-fit: cover;
+  height: 480px;
+}
+
+.grid__info {
+  grid-column: 4/5;
+  grid-row: 2/3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 5vw;
+}
+
+.cta__desc {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.cta__release {
+  font-family: "Barlow";
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 20px;
+  border: none;
+  border-radius: 10px;
+  color: #7b8bad;
+}
+
+.info__desc {
+  margin-top: 25px;
+}
+
+.bottom {
+  padding: 0px 11%;
+  display: grid;
+  grid-column: 1;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.bottom__segment {
+  padding: 0 2%;
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom__icon {
+  width: 65px;
+  height: 65px;
+}
+
+.attribution {
+  text-align: center;
+}
+
 /*# sourceMappingURL=style.css.map */
