@@ -15,13 +15,14 @@ body{
     font-family: 'Barlow';
     font-size: 16px;
     line-height: 26px;
-    color: $dark-blue;
+    color: $med-blue;
 }
 @mixin h {
     font-family: 'Barlow';
     text-transform: uppercase;
     font-weight: 900;
-  }
+    color: $dark-blue;
+}
 
 h1 {
     @include h;
@@ -38,15 +39,28 @@ h3{
     font-size: 24px;
     line-height: 28px;
 }
+@mixin rectangle {
+    content: '';
+    background-color: $light-blue;
+    width: 9vw;
+    height:240px;
+    border-radius: 10px;
+    position: absolute;
+
+}
 
 @mixin button{
     font-family: 'Barlow';
     text-transform: uppercase;
     font-weight: 700;
     font-size: 16px;
-    padding: 20px;
     border: none;
     border-radius: 10px;
+    transition: 0.25s;
+    cursor: pointer;
+    &:hover{
+        transition: 0.25s;
+    }
 }
 .button--blue{
     @include button;
@@ -69,25 +83,12 @@ h3{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    padding: 60px 10% 0;
     margin-bottom: 80px;
 }
 .header--logo{
     margin-right: auto;
     width: 40px;
     height: 40px;
-}
-.topgrid{
-    padding: 0px 11%;
-    display: grid; 
-    grid-auto-columns: 1fr; 
-    grid-template-columns: 2.5fr 2.8fr 1.5fr 3.8fr; 
-    gap: 2% 2%; 
-    grid-template-rows: 480px 480px; 
-    margin-bottom: 100px;
-}
-.topgrid img{ 
-    border-radius: 10px;
 }
 .grid__cta{
     grid-column: 1 / 3;
@@ -98,60 +99,285 @@ h3{
     grid-row: 1 / 2;
     & img{
         width: 100%;
-        height: 480px;
+        border-radius: 10px;
+        object-fit: cover;
     }
 }
 .grid__phone{
     grid-column: 1 / 2;
     grid-row: 2 / 3;
+    position: relative;
     & img{
+        border-radius: 10px;
+    }
+    &::before{
+        content: "";
         width: 100%;
-        height: 480px;
-    }   
+        height: 100%;
+        position: absolute;
+        border-radius: 10px;
+        background: $dark-orange;
+        mix-blend-mode: multiply;
+    }
 }
 .grid__glass{
     grid-column: 2 / 4;
     grid-row: 2 / 3;
-    & img {
-        width:100%;
-        object-fit: cover;
-        height: 480px;
+    width:100%;
+    & img{
+        border-radius: 10px;
     }
-}
-.grid__info{
-    grid-column: 4 / 5;
-    grid-row: 2 / 3;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 5vw;
 }
 .cta__desc{
     margin-top:25px;
     margin-bottom:25px;
 }
 .cta__release{
-    @include button;
+    font-family: 'Barlow';
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 16px;
     color: $med-blue;
-}
-.info__desc{
-    margin-top: 25px;
-}
-.bottom{
-    padding: 0px 11%;
-    display: grid;
-    grid-column: 1;
-    grid-template-columns: repeat(4, 1fr);
-}
-.bottom__segment{
-    padding: 0 2%;
-    display: flex;
-    flex-direction: column;
 }
 .bottom__icon{
     width: 65px;
     height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: $dark-orange;
+    margin-bottom:50px;
 }
 .attribution{
     text-align: center;
+    margin-top: 150px;
+    margin-bottom: 50px;
 }
+.attribution--bold{
+    font-weight: 700;
+}
+@media only screen and (min-width: 1025px) {
+    .header {
+        padding: 60px 11% 0;
+    }
+    .topgrid{
+        padding: 0px 11%;
+        display: grid;
+        grid-auto-columns: 1fr; 
+        grid-template-columns: 2.5fr 2.8fr 1.5fr 3.8fr; 
+        gap: 30px 30px; 
+        grid-template-rows: 480px 480px; 
+        margin-bottom: 100px;
+        position: relative;
+    }
+    .button--blue{
+        padding: 20px;
+    }
+    .button--orange{
+        padding: 20px;
+    }
+    .cta__release{
+        padding: 20px;
+    }
+    .topgrid::before{
+        @include rectangle;
+        right: 0;
+        top: 0;
+    }
+    .topgrid::after{
+        @include rectangle;
+        left: 0;
+        bottom: 0;
+    }
+    .topgrid img{ 
+        border-radius: 10px;
+    }
+    .grid__keyboard img{
+        height: 480px;
+    }
+    .grid__phone{
+        
+        & img{
+            width: 100%;
+            height: 480px;
+            border-radius: 10px;
+        }   
+    }
+    .grid__glass img{
+        height: 480px;
+        max-width: 100%;
+    }
+    
+    .grid__info{
+        grid-column: 4 / 5;
+        grid-row: 2 / 3;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 2vw;
+    }
+    
+    .info__desc{
+        margin-top: 25px;
+    }
+    .bottom{
+        padding: 0px 11%;
+        display: grid;
+        grid-column: 1;
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .bottom__segment{
+        padding: 0 2%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .bottom__desc{
+        margin-top: 20px;
+    }
+    
+  }
+  @media only screen and (max-width: 1024px) {
+    .header{
+        padding: 60px 5vw 0;
+    }
+    .button--blue{
+        padding: 20px;
+    }
+    .button--orange{
+        padding: 20px;
+    }
+    .cta__release{
+        padding: 20px;
+    }
+    .topgrid{
+        display: grid; 
+        padding-left: 5vw;
+        grid-auto-columns: 1fr; 
+        grid-template-columns: 2.1fr 1.6fr 2.8fr 5vw; 
+        grid-template-rows: 425px 320px auto; 
+        gap: 30px 30px; 
+        margin-bottom: 140px;
+    }
+    .grid__keyboard img{
+        height:425px;
+    }
+    .grid__phone img{
+        height: 320px;
+        width: 100%;
+        object-fit: cover;
+    }
+    .grid__glass img{
+        height:320px;
+        width: 100%;
+        object-fit: cover;
+    }
+    .grid__info{
+        grid-column: 1 / 4;
+        grid-row: 3 / 4;
+        display: flex;
+        flex-direction: row;
+        padding-top:40px;
+    }
+    .bottom{
+        padding: 0px 5vw;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .bottom__segment{
+        max-width: 40vw;
+        margin-bottom: 75px;
+    }
+
+  }
+  @media only screen and (max-width: 700px){
+    .header{
+        padding: 25px;
+    }
+    .button--blue{
+        padding: 15px;
+    }
+    .button--orange{
+        padding: 15px;
+    }
+    .cta__release{
+        padding: 15px;
+    }
+    .cta__title{
+        font-size: 48px;
+    }
+    .topgrid{
+        padding: 0px;
+        display: grid; 
+        width: 100%;
+        grid-auto-columns: 1fr; 
+        grid-template-columns: 8fr 22fr; 
+        grid-template-rows: auto 331px 193px auto; 
+        gap: 25px 25px; 
+    }
+    .grid__cta{
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+        padding-left: 25px;
+    }
+    .grid__keyboard {
+        grid-column: 1 / 3;
+        grid-row: 2 / 3;
+        margin-left: 25px;
+        & img{
+            height:331px;
+        }
+    }
+    .grid__phone {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+        & img{
+            height: 193px;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    .grid__glass{
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+        
+        & img{
+            height: 193px;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    .grid__info{
+        grid-row: 1 / 3;
+        grid-row: 4 / 5;
+        display: flex;
+        flex-direction: column;
+        padding: 0 25px;
+    }
+    .info__title{
+        padding: 25px;
+        text-align: center;
+    }
+    .info__desc{
+        text-align: center;
+    }
+    .bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+        padding: 0 25px;
+    }
+    .bottom__segment{
+        max-width: initial;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .bottom__desc{
+        margin-top: 25px;
+        text-align: center;
+    }
+  }
